@@ -1,0 +1,19 @@
+.register-Auth-container{
+    display: flex;
+    padding-right: 350px;
+    padding-left: 350px;
+    width: 55%;
+    .Auth-container{
+        width: 50%;
+        &.text-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            align-self: flex-start;
+            height: 100%;
+        }
+        .register-Auth-Text-Style {
+            display: flex;
+        }
+    }
+}

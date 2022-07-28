@@ -1,0 +1,56 @@
+.MuiPaper-root {
+  width: 30%;
+  height: 100%;
+  .cart-title-style {
+    background: black;
+    color: white;
+  }
+
+  .cart-content-style {
+    background-color: lightgrey;
+
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h3 {
+        margin: 0;
+      }
+
+      .cart-item-add-remove-section {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        width: 125%;
+
+        .cart-item-add-remove {
+          display: flex;
+          align-items: center;
+
+          button {
+            width: 25px;
+            height: 25px;
+            color: white;
+            padding: 5px;
+            background-color: mediumvioletred;
+          }
+          p {
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .cart-items-list-style {
+    background-color: white;
+  }
+  .cart-item-content {
+    display: flex;
+  }
+  .cart-item-img {
+    padding: 10px;
+  }
+}

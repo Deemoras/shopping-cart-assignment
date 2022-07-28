@@ -1,0 +1,30 @@
+.catergory-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  .catergory-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        &:nth-child(even) {
+        flex-direction: row-reverse;
+        }
+        .cat-btn-style {
+            background: darkred;
+            border-radius: 0;
+            text-transform: none;
+        }
+        .fontStyle {
+            font-size: smaller;
+        }
+    }
+}
+

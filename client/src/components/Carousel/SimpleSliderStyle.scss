@@ -1,0 +1,36 @@
+.SliderContainer {
+    width: 60%;
+    margin: auto;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 100px;
+}
+
+.slick-arrow {
+    z-index: 1;
+}
+
+.slick-prev:before {
+    content: 'Prev';
+}
+.slick-prev:after {
+    content: 'Prev';
+}
+
+.slick-next:before {
+    content: 'Next';
+}
+
+.slick-next:after {
+    content: 'Next';
+}
+
+
+.slick-prev, .slick-next {
+    width: 60px;
+    height: 30px;
+    color: #C0C0C0;
+    border: #C0C0C0;
+    outline: #C0C0C0;
+    background: #C0C0C0;
+}

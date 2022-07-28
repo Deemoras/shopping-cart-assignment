@@ -1,0 +1,27 @@
+.login-form-display{
+    width: 100%;
+    display: flex;
+    .login-form-container {
+        width: 65%;
+        float: right;
+        height: 100%;
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 100px;
+        .login-form-content {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            .text-field-style {
+                margin: 15px;
+                &.bottom-style {
+                    border-radius: 0px;
+                    background: deeppink;
+                    
+                }
+            }
+            
+        }
+    }
+}
