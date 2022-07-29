@@ -12,4 +12,8 @@
 .menu-items-style{
     margin-top: 10px;
     margin-bottom: 10px;
+    &.menu-items-style-active {
+        background-color: aqua;
+    }
 }
+

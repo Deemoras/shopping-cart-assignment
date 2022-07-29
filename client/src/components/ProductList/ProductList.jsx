@@ -5,6 +5,7 @@ import './ProductListStyle.scss';
 import Button from '@mui/material/Button';
 
 export default function ProductList(props) {
+
     
   return (
     <div className='prod-container'>
@@ -27,7 +28,7 @@ export default function ProductList(props) {
                     </p>
                     <div className='price-row'>
                         MRP Rs.{item.price}
-                        <Button variant="contained" className='prod-btn-style'>Buy Now</Button>
+                        <Button variant="contained" className='prod-btn-style' onClick={() => props.addItemsToCart(item)}>Buy Now</Button>
                     </div>
                     <div className='border-style'></div>
                 </div>

@@ -4,16 +4,36 @@ import Button from '@mui/material/Button';
 
 import './LoginStyle.scss'
 
-export default function Login() {
+export default function Login(props) {
   return (
-    <form className='login-form-display'>
+    <div className='login-form-display'>
         <div className='login-form-container'>
-            <div className='login-form-content'>
-                <TextField id="standard-basic" label="Email" variant="standard" className='text-field-style'/>
-                <TextField id="standard-basic" label="Password" variant="standard" className='text-field-style'/>
-                <Button variant="contained" className='text-field-style bottom-style'>Login</Button>
-            </div>
+            <form className='login-form-content' onSubmit={(e) => props.onSubmitClick(e, props.userDetails)}>
+                <TextField id="standard-basic" label="Email" variant="standard" className='text-field-style'
+                value={props.userDetails.email}
+                required
+                onChange={(event) =>
+                  props.setUserDetails({ ...props.userDetails, email: event.target.value })
+                }/>
+                <TextField id="standard-basic" label="Password" variant="standard" className='text-field-style'
+                value={props.userDetails.password}
+                required
+                onChange={(event) =>
+                  props.setUserDetails({ ...props.userDetails, password: event.target.value })
+                }/>
+                <p
+                  style={{
+                    color: "red",
+                    textAlign: "center",
+                  }}
+                >
+                  {props.validation}
+                </p>
+                <Button className='text-field-style bottom-style'
+                type="submit"
+                disabled={!(props.userDetails.email && props.userDetails.password)}>Login</Button>
+            </form>
         </div>
-    </form>
+    </div>
   )
 }

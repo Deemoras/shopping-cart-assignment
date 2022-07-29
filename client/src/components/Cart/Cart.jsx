@@ -53,7 +53,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function CustomizedDialogs(props) {
-  const [open, setOpen] = React.useState(false);
+  const open = false
 
   const handleClose = () => {
     props.closeDialog(false);
@@ -74,39 +74,38 @@ export default function CustomizedDialogs(props) {
         >
           My Cart
         </BootstrapDialogTitle>
-        <DialogContent dividers className="cart-content-style">
-          <Typography gutterBottom className="cart-items-list-style">
-            <div className="cart-item-content">
-              <div className="cart-item-img">
-                <img src={prodImg} alt="logo" height={80} width={80} />
-              </div>
-              <div className="cart-item-details">
-                <h3>Apple-Washington, Regular, 4pcs</h3>
-
-                <div className="cart-item-add-remove-section">
-                  <div className="cart-item-add-remove">
-                    <IconButton aria-label="add">
-                      <AddIcon />
-                    </IconButton>
-                    <p>1</p>
-                    <IconButton aria-label="remove">
-                      <RemoveIcon />
-                    </IconButton>
-                    <p>X Rs. 23</p>
-                  </div>
-                  <div className="item-total-value">
-                    <p>Rs. 23</p>
+        {props.cartItemList && props.cartItemList.length>0 && props.cartItemList.map((item,i)=>{
+          return (
+            <DialogContent dividers className="cart-content-style" key={i}>
+            <Typography gutterBottom className="cart-items-list-style">
+              <div className="cart-item-content">
+                <div className="cart-item-img">
+                  <img src={item.imageURL} alt="logo" height={80} width={80} />
+                </div>
+                <div className="cart-item-details">
+                  <h3>{item.name}</h3>
+  
+                  <div className="cart-item-add-remove-section">
+                    <div className="cart-item-add-remove">
+                      <IconButton aria-label="add" onClick={()=>props.incrementClick(item,i)}>
+                        <AddIcon />
+                      </IconButton>
+                      <div>{item.quantity}</div>
+                      <IconButton aria-label="remove" onClick={()=>props.decreamentClick(item,i)}>
+                        <RemoveIcon />
+                      </IconButton>
+                      <div>X {item.unitPrice}</div>
+                    </div>
+                    <div className="item-total-value">
+                      <div>Rs. {item.totalItemPrice}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
+            </Typography>
+          </DialogContent>
+          )
+        })}
       </BootstrapDialog>
     </div>
   );
