@@ -1,18 +1,46 @@
+@import "../../variable.scss";
+
 .catergory-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
 
   .catergory-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem;
-    width: 70%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    align-items: center;
+    width: 68%;
+    @include mobile {
+      width: 90%;
+    }
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    .cat-img-style {
+      width: fit-content;
+      img {
+        width: 540px;
+        height: 300px;
+
+        @include mobile {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .cat-desc-style {
+      width: inherit;
+      h1 {
+        font-size: 1rem;
+      }
+      text-align: center;
+    }
 
     &:nth-child(even) {
       flex-direction: row-reverse;
@@ -21,6 +49,9 @@
       background: darkred;
       border-radius: 0;
       text-transform: none;
+      @include mobile {
+        font-size: 10px;
+      }
     }
     .fontStyle {
       font-size: smaller;
