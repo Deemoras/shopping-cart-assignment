@@ -1,3 +1,18 @@
+@import "../../variable.scss";
+
+@include mobile {    
+  body{
+  }
+}
+
+@include tablet {    
+  body{
+  }
+}
+
+@include desktop { 
+}
+
 .carousal-container{
     margin-top: 15px;
     margin-bottom: 15px;

@@ -43,11 +43,26 @@
     float: right;
     justify-items: center;
     align-items: end;
+    flex-direction: column;
     .cart-items {
         display: flex;
         align-items: center;
+        width: 150px;
     }
     .iconStyle {
         color: white;
     }
+    .cart-nav-items {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0;
+        list-style: none;
+        .signIn-section {
+            padding: 10px;
+        }
+        .register-section {
+            padding: 10px;
+        }
+    }
+    
 }

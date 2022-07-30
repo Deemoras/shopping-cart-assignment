@@ -1,19 +1,46 @@
-.menu-container {
-    width: 15%;
-    padding: 20px;
-    background: darkgrey;
+@import "../../variable.scss";
+
+@include desktop {  
+
+    .menu-container {
+        width: 15%;
+        padding: 20px;
+        background: darkgrey;
+    }
+
+    .menu-aligment {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-items-style{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &.menu-items-style-active {
+            background-color: aqua;
+        }
+    }
+
+    .category-dropdown {
+        display: none;
+    }
 }
 
-.menu-aligment {
-    display: flex;
-    flex-direction: column;
-}
 
-.menu-items-style{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    &.menu-items-style-active {
-        background-color: aqua;
+@include mobile { 
+    .menu-aligment {
+        display: none;
+    }
+    .menu-items-style {
+        display: none;
+    }
+    .category-dropdown {
+        margin: 10px 0px;
+        width: 100%;
+        background-color: #d00156;
+        color: white;
+        padding: 10px;
+        display: inline-block;
     }
 }
 

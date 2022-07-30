@@ -4,7 +4,8 @@ import {
     ADD_ITEM_FAILURE,
     INCREASE_QUANTITY,
     DECREASE_QUANTITY,
-    ADD_NEW_QUANTITY
+    ADD_NEW_QUANTITY,
+    DELETE_QUANTITY
   } from "./cartActionTypes";
   
   const intialState = {
@@ -34,6 +35,14 @@ import {
           error: action.payload,
         };
       case INCREASE_QUANTITY: {
+        return {
+          loading: false,
+          data: action.payload,
+          error: "",
+        };
+      }
+
+      case DELETE_QUANTITY: {
         return {
           loading: false,
           data: action.payload,

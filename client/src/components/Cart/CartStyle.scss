@@ -13,7 +13,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-
+      width: 100%;
       h3 {
         margin: 0;
       }
@@ -22,7 +22,6 @@
         display: flex;
         justify-content: space-between;
         padding: 5px;
-        width: 125%;
 
         .cart-item-add-remove {
           display: flex;
@@ -43,6 +42,16 @@
       }
     }
   }
+
+  .text-field-style {
+    margin: 15px;
+    &.bottom-style {
+        border-radius: 0px;
+        background: deeppink;
+        color: white;
+        
+    }
+}
 
   .cart-items-list-style {
     background-color: white;

@@ -74,7 +74,7 @@ export default function CustomizedDialogs(props) {
         >
           My Cart
         </BootstrapDialogTitle>
-        {props.cartItemList && props.cartItemList.length>0 && props.cartItemList.map((item,i)=>{
+        {props.cartItemList && props.cartItemList.length>0 ? props.cartItemList.map((item,i)=>{
           return (
             <DialogContent dividers className="cart-content-style" key={i}>
             <Typography gutterBottom className="cart-items-list-style">
@@ -104,8 +104,12 @@ export default function CustomizedDialogs(props) {
               </div>
             </Typography>
           </DialogContent>
-          )
-        })}
+          ) 
+        }): <div>Add Items to Cart</div>}
+        <div>
+          {props.cartItemList && props.cartItemList.length>0 && <Button className='text-field-style bottom-style' onClick={props.proceedToCheckout}>Proceed to Checkout</Button>}
+          {props.cartItemList && props.cartItemList.length>0 && props.totalPrice}
+        </div>
       </BootstrapDialog>
     </div>
   );

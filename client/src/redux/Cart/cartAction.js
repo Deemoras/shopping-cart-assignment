@@ -5,6 +5,7 @@ import {
     INCREASE_QUANTITY,
     DECREASE_QUANTITY,
     ADD_NEW_QUANTITY,
+    DELETE_QUANTITY
   } from "./cartActionTypes";
   import { CART_URL, HEADER} from "../../api_constants";
   import axios from 'axios';
@@ -58,12 +59,18 @@ import {
     };
   };
 
+  export const deleteQuantity = (prodId) => {
+    return {
+      type: DELETE_QUANTITY,
+      payload: prodId,
+    };
+  };
+
   export const addItemToCart = (data, id) => {
     return (dispatch) => {
       dispatch(addItemToCartRequest());
       axios.post(CART_URL, id, HEADER)
         .then((res) => {
-          console.log(res.data)
           dispatch(addItemToCartSuccess(data));
         })
         .catch((err) => {

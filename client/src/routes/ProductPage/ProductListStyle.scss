@@ -1,4 +1,16 @@
+@import "../../variable.scss";
+
+
 .product-page-container {
     display:flex;
     padding-left:295px;
+
+    @include mobile {    
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }  
+    
 }
+
+

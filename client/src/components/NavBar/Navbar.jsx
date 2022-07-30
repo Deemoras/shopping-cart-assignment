@@ -4,7 +4,7 @@ import logo2 from '../../static/images/logo.png';
 import cartIcon from '../../static/images/cart.svg';
 import Cart from '../Cart/Cart';
 import { useDispatch, useSelector } from "react-redux";
-import { decreaseQuantity, increaseQuantity } from "../../redux/Cart/cartAction";
+import { decreaseQuantity, increaseQuantity, deleteQuantity } from "../../redux/Cart/cartAction";
 
 import { Link } from 'react-router-dom';
 
@@ -12,15 +12,14 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const itemAdded = useSelector((state) => state.cart.data);
   const [open, setOpen] = useState(false);
-  console.log(itemAdded);
 
 
   const handleDecrement = (product, i) => {
-    let itemList = itemAdded.cartList ? itemAdded.cartList: [];
-      let addedObj =  itemList && itemList.length>0 ? itemList.find((item)=> item.id == product.id): false;
+      let itemList = itemAdded.cartList;
+      let addedObj = product;
       let totalCartObj = {};
 
-      if(addedObj && addedObj.quantity>1) {
+      if(addedObj.quantity>1) {
         addedObj.quantity = addedObj.quantity - 1;
         addedObj.totalItemPrice = addedObj.totalItemPrice - product.unitPrice;
         itemList[i] = addedObj;
@@ -28,24 +27,32 @@ export default function Navbar() {
         itemList.splice(i,1)
       }
       totalCartObj.cartList = itemList;
+      totalCartObj.totalQuantity = itemList.length == 1 && addedObj ? addedObj.quantity : itemList.reduce((acc, curr) => acc + curr.quantity, 0);
       totalCartObj.totalPrice = itemList.length == 1 && addedObj ? addedObj.totalItemPrice : itemList.reduce((acc, curr) => acc + curr.totalItemPrice, 0);
     dispatch(decreaseQuantity(totalCartObj));
   };
 
   const handleIncrement = (product,i) => {
-      let itemList = itemAdded.cartList ? itemAdded.cartList: [];
-      let addedObj =  itemList && itemList.length>0 ? itemList.find((item)=> item.id == product.id): false;
+      let itemList = itemAdded.cartList;
+      let addedObj =  product;
       let totalCartObj = {};
 
-      if(addedObj) {
         addedObj.quantity = addedObj.quantity < addedObj.stock ? addedObj.quantity + 1 : addedObj.quantity;
         addedObj.totalItemPrice = addedObj.quantity < addedObj.stock ? addedObj.totalItemPrice + product.unitPrice : addedObj.totalItemPrice;
-        itemList[i] = addedObj
-      }
+        itemList[i] = addedObj;
+
       totalCartObj.cartList = itemList;
+      totalCartObj.totalQuantity = itemList.length == 1 && addedObj ? addedObj.quantity : itemList.reduce((acc, curr) => acc + curr.quantity, 0);
       totalCartObj.totalPrice = itemList.length == 1 && addedObj ? addedObj.totalItemPrice : itemList.reduce((acc, curr) => acc + curr.totalItemPrice, 0);
       dispatch(increaseQuantity(totalCartObj));
   };
+
+  const handleCheckout = () => {
+    let totalCartObj = {}
+    totalCartObj.cartList = [];
+    totalCartObj.totalPrice = 0
+    dispatch(deleteQuantity(totalCartObj));
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -66,15 +73,21 @@ export default function Navbar() {
                 <li className='home-section'><Link to='/'>Home</Link></li>
                 <li className='product-section'><Link to='/products'>Products</Link></li>
             </ul>
-            <div className='cart-container' onClick={handleClickOpen}>
-              <div className='cart-items'>
+            <div className='cart-container'>
+            <div>
+                <ul className='cart-nav-items'>
+                    <li className='signIn-section'><Link to='/login'>SignIn</Link></li>
+                    <li className='register-section'><Link to='/register'>Register</Link></li>
+                </ul>
+              </div>
+              <div className='cart-items'  onClick={handleClickOpen}>
                 <img src={cartIcon} width={35} height={35} alt="logo" className='iconStyle' fill="#3F6078" />
-                0 Items
+                {itemAdded && itemAdded.totalQuantity ? itemAdded.totalQuantity : 0} Items
               </div>
             </div>
           </div>
         </div>
-        <Cart openDialog={open} closeDialog={handleClose} decreamentClick = {handleDecrement} incrementClick = {handleIncrement} cartItemList={itemAdded.cartList}/>
+        <Cart openDialog={open} closeDialog={handleClose} decreamentClick = {handleDecrement} incrementClick = {handleIncrement} cartItemList={itemAdded.cartList} totalPrice={itemAdded.totalPrice} proceedToCheckout={handleCheckout}/>
     </nav>
   )
 }

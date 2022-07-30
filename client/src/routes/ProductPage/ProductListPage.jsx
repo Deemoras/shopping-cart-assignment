@@ -65,6 +65,7 @@ export default function ProductListPage() {
       }
 
       totalCartObj.cartList = itemList;
+      totalCartObj.totalQuantity = itemList.length == 1 && addedObj ? addedObj.quantity : itemList.reduce((acc, curr) => acc + curr.quantity, 0);
       totalCartObj.totalPrice = itemList.length == 1 && addedObj ? addedObj.totalItemPrice : itemList.reduce((acc, curr) => acc + curr.totalItemPrice, 0);
       dispatch(addNewQuantity(totalCartObj));
       dispatch(addItemToCart(obj.id));
