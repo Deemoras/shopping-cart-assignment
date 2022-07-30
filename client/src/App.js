@@ -12,7 +12,7 @@ function App() {
   return (
     <main>
       <Navbar/>
-      <Routes>
+      {/* <Routes>
         <Route path="/" exact element={<HomePage />}/>
         <Route path="products" element={<ProductListPage />} />
         <Route path="register" element={<RegisterAuthentication/>}/>
@@ -22,7 +22,7 @@ function App() {
         <div className='copyright-container'>
           <p>Copyright © 2011-2018 Sabka Bazar Grocery Supplies Pvt Ltd</p>
         </div>
-      </footer>
+      </footer> */}
     </main>
   );
 }
