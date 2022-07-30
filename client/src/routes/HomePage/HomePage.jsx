@@ -25,10 +25,10 @@ export default function HomePage() {
 
   return (
     <div className="home-page-container">
-      <div className="carousal-container">
+      <div className="home-carousal-container">
         <SimpleSlider SliderListData={banners} />
       </div>
-      <div className="category-container">
+      <div className="home-category-container">
         <CategorySection categoryList={enabledCategories} />
       </div>
     </div>
