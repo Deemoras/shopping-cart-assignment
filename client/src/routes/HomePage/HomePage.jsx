@@ -1,35 +1,36 @@
-import React, {useEffect, useState} from 'react'
-import SimpleSlider from '../../components/Carousel/SimpleSlider';
+import React, { useEffect, useState } from "react";
+import SimpleSlider from "../../components/Carousel/SimpleSlider";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories } from "../../redux/Category/categoryActions";
 import { fetchBanners } from "../../redux/Banner/bannerActions";
 
-import './HomePageStyle.scss'
-import CategorySection from '../../components/Category/CategorySection';
+import "./HomePageStyle.scss";
+import CategorySection from "../../components/Category/CategorySection";
 
 export default function HomePage() {
-    const dispatch = useDispatch();
-    const categories = useSelector((state) => state.categories.data);
-    const enabledCategories =  categories && categories.length && categories.filter((item)=> item.enabled == true)
-    const loading = useSelector((state) => state.categories.loading);
-    const error = useSelector((state) => state.categories.error);
-    const banners = useSelector((state) => state.banners.data);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.data);
+  const enabledCategories =
+    categories &&
+    categories.length &&
+    categories.filter((item) => item.enabled == true);
+  const loading = useSelector((state) => state.categories.loading);
+  const error = useSelector((state) => state.categories.error);
+  const banners = useSelector((state) => state.banners.data);
 
-
-    useEffect(() => {
-      dispatch(fetchBanners());
-      dispatch(fetchCategories());
-    },[])
-
+  useEffect(() => {
+    dispatch(fetchBanners());
+    dispatch(fetchCategories());
+  }, []);
 
   return (
-    <section>
-        <div className='carousal-container'>
-          <SimpleSlider SliderListData = {banners}/>
-        </div>
-        <div>
-          <CategorySection categoryList={enabledCategories}/>
-        </div>
-    </section>
-  )
+    <div className="home-page-container">
+      <div className="carousal-container">
+        <SimpleSlider SliderListData={banners} />
+      </div>
+      <div className="category-container">
+        <CategorySection categoryList={enabledCategories} />
+      </div>
+    </div>
+  );
 }
