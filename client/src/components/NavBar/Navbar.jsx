@@ -10,10 +10,12 @@ import {
   deleteQuantity,
 } from "../../redux/Cart/cartAction";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userAuthentication = sessionStorage.getItem("status");
   const itemAdded = useSelector((state) => state.cart.data);
   const [open, setOpen] = useState(false);
 
@@ -69,10 +71,18 @@ export default function Navbar() {
   };
 
   const handleCheckout = () => {
-    let totalCartObj = {};
-    totalCartObj.cartList = [];
-    totalCartObj.totalPrice = 0;
-    dispatch(deleteQuantity(totalCartObj));
+    if (itemAdded.length > 0) {
+      userAuthentication === "logged-in"
+        ? navigate("/")
+        : navigate("/login");
+    } else {
+      let totalCartObj = {};
+      totalCartObj.cartList = [];
+      totalCartObj.totalPrice = 0;
+      dispatch(deleteQuantity(totalCartObj));
+      navigate("/products");
+    }
+    
   };
 
   const handleClickOpen = () => {
@@ -83,15 +93,18 @@ export default function Navbar() {
     setOpen(value);
   };
 
+  const onLogoutClick = () => {
+    sessionStorage.setItem("status", "");
+    navigate("/");
+  }
+
   return (
     <nav className="Nav-Style">
       <div className="container">
         <div className="img-content">
-          <a>
             <Link to="/">
               <img src={logo2} className="img-style" alt="logo" />
             </Link>
-          </a>
         </div>
         <div className="nav-item-container">
           <ul className="nav-items">
@@ -104,6 +117,13 @@ export default function Navbar() {
           </ul>
           <div className="cart-container">
             <div>
+              {userAuthentication === "logged-in" ?
+              <ul className="cart-nav-items">
+              <li className="home-section" onClick={onLogoutClick}>
+                Logout
+              </li>
+            </ul>
+              :
               <ul className="cart-nav-items">
                 <li className="signIn-section">
                   <Link to="/login">SignIn</Link>
@@ -112,6 +132,7 @@ export default function Navbar() {
                   <Link to="/register">Register</Link>
                 </li>
               </ul>
+              }
             </div>
             <div className="cart-items" onClick={handleClickOpen}>
               <img

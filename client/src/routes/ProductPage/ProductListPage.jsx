@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../redux/Product/productAction";
 import { fetchCategories } from "../../redux/Category/categoryActions";
 import Menu from "../../components/Menu/Menu";
 import ProductList from "../../components/ProductList/ProductList";
 import { addItemToCart, addNewQuantity } from "../../redux/Cart/cartAction";
-import Cart from "../../components/Cart/Cart";
 
 import "./ProductListStyle.scss";
 
@@ -15,7 +13,6 @@ export default function ProductListPage() {
   const dispatch = useDispatch();
   const location = useLocation();
   const itemAdded = useSelector((state) => state.cart.data);
-  console.log(itemAdded);
   const productsItem = useSelector((state) => state.products.data);
   const loading = useSelector((state) => state.products.loading);
   const error = useSelector((state) => state.products.error);

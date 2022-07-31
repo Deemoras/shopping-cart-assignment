@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Login from "../../components/Login/Login";
-import Navbar from "../../components/NavBar/Navbar";
 import "./LoginAuthenticationStyle.scss";
 import { useNavigate } from "react-router-dom";
 

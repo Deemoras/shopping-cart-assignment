@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./MenuStyle.scss";
@@ -11,17 +10,14 @@ export default function Menu(props) {
 
   const handleOnClick = (id) => {
     navigate("/products", { state: { id: id, page: "products" } });
-    props.filterProductList(id, "menu");
   };
-
-  const handleCategoryChange = () => {};
 
   return (
     <div className="menu-container">
       <div className="mobile-menu">
         <select
-          value={props.productId}
-          onChange={(e) => handleCategoryChange(e.target.value)}
+          value={props.productId? props.productId : ""}
+          onChange={(e) => handleOnClick(e.target.value)}
           className="category-dropdown"
         >
           <option value="" disabled>

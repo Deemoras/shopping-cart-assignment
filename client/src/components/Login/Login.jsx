@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 import "./LoginStyle.scss";
 
@@ -55,6 +56,7 @@ export default function Login(props) {
           >
             Login
           </Button>
+          <Link to="/register" className="create-account-text">Not Having Account? Create Account</Link>
         </form>
       </div>
     </div>

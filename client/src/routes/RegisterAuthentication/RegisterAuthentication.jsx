@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Register from "../../components/Register/Register";
-import Navbar from "../../components/NavBar/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./RegisterAuth.scss";
 
