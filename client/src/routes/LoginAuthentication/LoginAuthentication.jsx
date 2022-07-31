@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Login from '../../components/Login/Login'
-import Navbar from '../../components/NavBar/Navbar'
-import './LoginAuthenticationStyle.scss'
+import Login from "../../components/Login/Login";
+import Navbar from "../../components/NavBar/Navbar";
+import "./LoginAuthenticationStyle.scss";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginAuthentication() {
-
   const navigate = useNavigate();
   const initialState = {
     email: "",
@@ -27,14 +26,24 @@ export default function LoginAuthentication() {
   };
 
   return (
-    <section className="login-Auth-container">
-        <aside className='Auth-container text-content'>
-            <h1 className='Login-Auth-Text-Style'>Login</h1>
-            <p className='Login-Auth-Text-Style'>Get access to your Orders, Wishlist and Recommendation</p>
-        </aside>
-        <aside className='Auth-container'>
-          <Login onSubmitClick={onFormSubmit} validation = {validation} userDetails={userDetails} setUserDetails={setUserDetails} setValidation={setValidation}/>
-        </aside>
-    </section>
-  )
+    <div className="login-Auth-container">
+      <div className="login-container">
+        <div className="login-desc-container text-content">
+          <h1 className="Login-Auth-Text-Style">Login</h1>
+          <p className="Login-Auth-Text-Style">
+            Get access to your Orders, Wishlist and Recommendation
+          </p>
+        </div>
+        <div className="login-form-container">
+          <Login
+            onSubmitClick={onFormSubmit}
+            validation={validation}
+            userDetails={userDetails}
+            setUserDetails={setUserDetails}
+            setValidation={setValidation}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
