@@ -34,7 +34,7 @@ export default function LoginAuthentication() {
             Get access to your Orders, Wishlist and Recommendation
           </p>
         </div>
-        <div className="login-form-container">
+        <div className="login-authform-container">
           <Login
             onSubmitClick={onFormSubmit}
             validation={validation}

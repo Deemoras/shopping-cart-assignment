@@ -1,7 +1,10 @@
+@import "../../variable.scss";
+
 .login-form-display {
   width: 100%;
   display: flex;
   .login-form-container {
+    width: 100%;
     .login-form-content {
       display: flex;
       justify-content: flex-start;
