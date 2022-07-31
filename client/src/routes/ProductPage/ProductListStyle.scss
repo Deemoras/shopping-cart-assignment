@@ -1,19 +1,10 @@
 @import "../../variable.scss";
 
 .product-page-container {
-//   background-color: aquamarine;
   display: flex;
   justify-content: center;
-  // padding-left:295px;
-
-  // @include mobile {
-  //     display: flex;
-  //     flex-direction: column;
-  //     width: 100%;
-  // }
 
   .product-container {
-    // background-color: darkgoldenrod;
     display: flex;
     justify-content: center;
     width: 70%;
@@ -24,7 +15,6 @@
     }
 
     .product-list-container {
-      background-color: brown;
       width: 80%;
     }
   }

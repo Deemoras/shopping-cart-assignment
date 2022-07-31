@@ -5,42 +5,49 @@
   flex-wrap: wrap;
   padding: 20px;
 
-  .card-style {
-    width: 20%;
-    padding: 20px;
-    @include mobile {
-      width: 100%;
-      padding: 20px;
-    }
-    .card-content-align {
-      margin-top: 10px;
-    }
-    .card-desc-style {
-      background: lightgrey;
-      padding: 10px;
-      font-size: smaller;
-    }
+  .item-card-container {
+    background-color: white;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 273px;
+    height: 410px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
     .card-title {
-      width: 95%;
-      font-size: 12.5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      font-size: large;
+      font-weight: bold;
     }
     .card-img {
-      margin-top: 30px;
+      margin-top: 3px;
+      img {
+        width: 100%;
+        height: 200px;
+      }
     }
-    .price-row {
+    .card-desc {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      background-color: gainsboro;
+      border-radius: 3px;
+      margin-top: 1rem;
+      padding: 4px;
+      p {
+        margin: 0;
+      }
+    }
+    .card-footer {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
-      align-items: center;
-    }
-    .prod-btn-style {
-      border-radius: 0;
-      background-color: mediumvioletred;
-      color: white;
-    }
-    .border-style {
-      border-bottom: 1.5px dotted;
-      margin-top: 15px;
+      margin-top: 2rem;
+      button {
+        background-color: mediumvioletred;
+        color: white;
+      }
     }
   }
 }
