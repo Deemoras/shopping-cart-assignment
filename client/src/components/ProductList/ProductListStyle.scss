@@ -5,13 +5,6 @@
   flex-wrap: wrap;
   padding: 20px;
 
-  @include mobile {
-    display: flex;
-    flex-wrap: wrap;
-    // width: 100%;
-    padding: 50px;
-  }
-
   .card-style {
     width: 20%;
     padding: 20px;
@@ -49,11 +42,5 @@
       border-bottom: 1.5px dotted;
       margin-top: 15px;
     }
-  }
-}
-
-@include mobile {
-  .mobile-display-card {
-    display: flex;
   }
 }
