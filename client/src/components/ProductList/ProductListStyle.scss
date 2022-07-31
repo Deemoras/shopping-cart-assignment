@@ -1,65 +1,59 @@
 @import "../../variable.scss";
 
-
 .prod-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+
+  @include mobile {
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    // width: 100%;
     padding: 50px;
+  }
 
-    @include mobile {    
-        display: flex;
-        flex-wrap: wrap;
-        // width: 100%;
-        padding: 50px;
+  .card-style {
+    width: 20%;
+    padding: 20px;
+    @include mobile {
+      width: 100%;
+      padding: 20px;
     }
-    
-
-    .card-style {
-        width: 20%;
-        padding: 20px;
-        @include mobile {    
-            width: 100%;
-            padding: 20px;
-        }
-        .card-content-align{
-            margin-top: 10px;
-        }
-        .card-desc-style{
-            background: lightgrey;
-            padding: 10px;
-            font-size: smaller;        
-        }
-        .card-title{
-            width: 95%;
-            font-size: 12.5px;
-        }
-        .card-img {
-            margin-top: 30px;
-        }
-        .price-row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .prod-btn-style{
-            border-radius: 0;
-            background-color: mediumvioletred;
-            color: white;
-        }
-        .border-style{
-            border-bottom: 1.5px dotted;
-            margin-top: 15px;
-        }
+    .card-content-align {
+      margin-top: 10px;
     }
-
-
-   
+    .card-desc-style {
+      background: lightgrey;
+      padding: 10px;
+      font-size: smaller;
+    }
+    .card-title {
+      width: 95%;
+      font-size: 12.5px;
+    }
+    .card-img {
+      margin-top: 30px;
+    }
+    .price-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .prod-btn-style {
+      border-radius: 0;
+      background-color: mediumvioletred;
+      color: white;
+    }
+    .border-style {
+      border-bottom: 1.5px dotted;
+      margin-top: 15px;
+    }
+  }
 }
 
-@include mobile {  
-    .mobile-display-card {
-        display: flex;
-    }
+@include mobile {
+  .mobile-display-card {
+    display: flex;
+  }
 }
