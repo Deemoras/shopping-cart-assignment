@@ -7,14 +7,21 @@
   .product-container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     width: 70%;
+
     @include mobile {
       width: 100%;
+      flex-direction: column;
     }
 
     .menu-list-container {
       background-color: silver;
       width: 20%;
+      @include mobile {
+        width: 100%;
+        background-color: transparent;
+      }
     }
 
     .product-list-container {

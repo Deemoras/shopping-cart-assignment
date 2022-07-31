@@ -87,7 +87,11 @@ export default function Navbar() {
     <nav className="Nav-Style">
       <div className="container">
         <div className="img-content">
-          <img src={logo2} className="img-style" alt="logo" />
+          <a>
+            <Link to="/">
+              <img src={logo2} className="img-style" alt="logo" />
+            </Link>
+          </a>
         </div>
         <div className="nav-item-container">
           <ul className="nav-items">
