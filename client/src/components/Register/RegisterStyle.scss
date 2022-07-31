@@ -1,24 +1,17 @@
+@import "../../variable.scss";
+
 .form-container {
-    width: 90%;
-    float: right;
-    height: 100%;
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 100px;
-    .form-content {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        .text-field-style {
-            margin: 15px;
-            &.bottom-style {
-                border-radius: 0px;
-                background: deeppink;
-                color: white;
-                
-            }
-        }
-        
+  .form-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    .text-field-style {
+      margin: 15px;
+      &.bottom-style {
+        border-radius: 0px;
+        background: deeppink;
+        color: white;
+      }
     }
+  }
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Register from '../../components/Register/Register';
-import Navbar from '../../components/NavBar/Navbar';
+import Register from "../../components/Register/Register";
+import Navbar from "../../components/NavBar/Navbar";
 import { useNavigate } from "react-router-dom";
-import './RegisterAuth.scss';
+import "./RegisterAuth.scss";
 
 export default function RegisterAuthentication() {
   const navigate = useNavigate();
@@ -22,7 +22,8 @@ export default function RegisterAuthentication() {
   const onFormSubmit = (e, userDetails) => {
     e.preventDefault();
     const emailReg = /\S+@\S+\.\S+/;
-    const pwdReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    const pwdReg =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (userDetails.firstName && userDetails.email && userDetails.password) {
       if (userDetails.password === userDetails.confirmPwd) {
         if (pwdReg.test(userDetails.password)) {
@@ -65,14 +66,24 @@ export default function RegisterAuthentication() {
   };
 
   return (
-    <section className="register-Auth-container">
-        <aside className='Auth-container text-content'>
-            <h1 className='register-Auth-Text-Style'>Sign Up</h1>
-            <p className='register-Auth-Text-Style'>We do not share your personal details with anyone</p>
-        </aside>
-        <aside className='Auth-container'>
-          <Register onSubmitClick={onFormSubmit} validation = {validation} userDetails={userDetails} setUserDetails={setUserDetails} setValidation={setValidation}/> 
-        </aside>
-    </section>
-  )
+    <div className="register-Auth-container">
+      <div className="register-container">
+        <div className="register-desc-container text-content">
+          <h1 className="register-Auth-Text-Style">Sign Up</h1>
+          <p className="register-Auth-Text-Style">
+            We do not share your personal details with anyone
+          </p>
+        </div>
+        <div className="register-form-container">
+          <Register
+            onSubmitClick={onFormSubmit}
+            validation={validation}
+            userDetails={userDetails}
+            setUserDetails={setUserDetails}
+            setValidation={setValidation}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
