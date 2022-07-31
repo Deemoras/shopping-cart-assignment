@@ -15,21 +15,27 @@ export default function ProductList(props) {
               <div className="card-title">
                 <p>{item.name}</p>
               </div>
-              <div className="card-img">
-                <img src={item.imageURL} />
-              </div>
-              <div className="card-desc">
-                <p>{item.description}</p>
-              </div>
-              <div className="card-footer">
-                MRP Rs.{item.price}
-                <Button
-                  variant="contained"
-                  className="prod-btn-style"
-                  onClick={() => props.addItemsToCart(item)}
-                >
-                  Buy Now
-                </Button>
+
+              <div className="card-img-desc-container">
+                <div className="card-img">
+                  <img src={item.imageURL} />
+                </div>
+
+                <div className="card-desc-container">
+                  <div className="card-desc">
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="card-footer">
+                    <p>MRP Rs.{item.price}</p>
+                    <Button
+                      variant="contained"
+                      className="prod-btn-style"
+                      onClick={() => props.addItemsToCart(item)}
+                    >
+                      Buy Now
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
             // <div key={item.id} className="card-style">

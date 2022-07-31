@@ -86,12 +86,12 @@ export default function ProductListPage() {
         <div className="no-content">Some error occured!</div>
       ) : (
         <div className="product-container">
-          <div className="menu-list-container">
+          {/* <div className="menu-list-container">
             <Menu
               categoryList={categories}
               productId={location.state && location.state.id}
             />
-          </div>
+          </div> */}
           <div className="product-list-container">
             <ProductList
               productsList={filteredProducts}

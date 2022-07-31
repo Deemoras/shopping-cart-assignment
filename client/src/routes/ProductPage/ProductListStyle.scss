@@ -8,6 +8,9 @@
     display: flex;
     justify-content: center;
     width: 70%;
+    @include mobile {
+      width: 100%;
+    }
 
     .menu-list-container {
       background-color: silver;
@@ -16,6 +19,9 @@
 
     .product-list-container {
       width: 80%;
+      @include mobile {
+        width: 100%;
+      }
     }
   }
 }
