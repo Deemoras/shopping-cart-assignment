@@ -16,7 +16,7 @@ export default function Menu(props) {
     <div className="menu-container">
       <div className="mobile-menu">
         <select
-          value={props.productId? props.productId : ""}
+          value={props.productId ? props.productId : ""}
           onChange={(e) => handleOnClick(e.target.value)}
           className="category-dropdown"
         >

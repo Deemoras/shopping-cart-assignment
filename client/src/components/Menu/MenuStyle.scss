@@ -33,9 +33,6 @@
 }
 
 @include mobile {
-  .menu-aligment {
-    display: none;
-  }
   .menu-items-style {
     display: none;
   }
@@ -46,5 +43,20 @@
     color: white;
     padding: 10px;
     display: inline-block;
+  }
+}
+
+@include tablet {
+  .menu-items-style {
+    display: block;
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+    cursor: pointer;
+    &.menu-items-style-active {
+      background-color: gainsboro;
+    }
+  }
+  .category-dropdown {
+    display: none;
   }
 }
