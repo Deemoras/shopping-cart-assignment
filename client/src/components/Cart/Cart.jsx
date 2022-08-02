@@ -14,12 +14,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import lowestPrice from "../../static/images/lowest-price.png";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  // "& .MuiDialogContent-root": {
-  // paddingTop: theme.spacing(2),
-  // },
-  // "& .MuiDialogActions-root": {
-  //   paddingTop: theme.spacing(1),
-  // },
+
 }));
 
 const BootstrapDialogTitle = (props) => {

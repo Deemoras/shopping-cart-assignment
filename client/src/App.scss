@@ -1,4 +1,4 @@
-
+@import "./variable.scss";
 
 .App-logo {
   height: 40vmin;
@@ -24,6 +24,34 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.copyright {
+  background: #eaeaea;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 170px;
+  padding-right: 15px;
+  @include mobile {
+    background: #eaeaea;
+    padding-left: 0;
+  }
+  @media (min-width:321px) and (max-width:768px) {
+    background: #eaeaea;
+    padding-left: 100px;
+  }
+  .copyright-container {
+    width: 900px;
+    p {
+      padding: 8px 0 8px 20px;
+      margin: 0;
+      color: gray;
+      font-size: 12px;
+      @include mobile {
+        padding: 8px 0 8px 10px;
+      }
+    }
+  }
 }
 
 

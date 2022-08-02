@@ -10,13 +10,7 @@ import {
   import { CART_URL, HEADER} from "../../api_constants";
   import axios from 'axios';
   
-  // export const addItemToCart = (item) => {
-  //   return {
-  //     type: ADD_ITEM,
-  //     payload: item,
-  //   };
-  // };
-
+ 
   export const addItemToCartRequest = () => {
     return {
       type: ADD_ITEM_REQUEST,

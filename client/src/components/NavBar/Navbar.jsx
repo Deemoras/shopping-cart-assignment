@@ -16,6 +16,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userAuthentication = sessionStorage.getItem("status");
+  const [isLoggedIn, setIsLoggedIn] = useState(userAuthentication)
   const itemAdded = useSelector((state) => state.cart.data);
   const [open, setOpen] = useState(false);
 
@@ -95,7 +96,7 @@ export default function Navbar() {
 
   const onLogoutClick = () => {
     sessionStorage.setItem("status", "");
-    navigate("/");
+    setIsLoggedIn(false);
   }
 
   return (
@@ -119,8 +120,8 @@ export default function Navbar() {
             <div>
               {userAuthentication === "logged-in" ?
               <ul className="cart-nav-items">
-              <li className="home-section" onClick={onLogoutClick}>
-                Logout
+              <li className="logout-section" onClick={onLogoutClick}>
+                <a href="">Logout</a>
               </li>
             </ul>
               :

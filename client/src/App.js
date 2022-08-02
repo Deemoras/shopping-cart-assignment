@@ -5,6 +5,7 @@ import LoginAuthentication from "./routes/LoginAuthentication/LoginAuthenticatio
 import { Routes, Route } from "react-router-dom";
 import ProductListPage from "./routes/ProductPage/ProductListPage";
 import Navbar from "./components/NavBar/Navbar";
+import './App.scss'
 
 function App() {
   return (
@@ -16,11 +17,11 @@ function App() {
         <Route path="register" element={<RegisterAuthentication />} />
         <Route path="login" element={<LoginAuthentication />} />
       </Routes>
-      {/* <footer className='copyright'>
+      <footer className='copyright'>
         <div className='copyright-container'>
           <p>Copyright © 2011-2018 Sabka Bazar Grocery Supplies Pvt Ltd</p>
         </div>
-      </footer> */}
+      </footer>
     </main>
   );
 }

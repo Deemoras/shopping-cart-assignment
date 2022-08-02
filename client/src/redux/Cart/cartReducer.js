@@ -71,34 +71,5 @@ import {
     }
   };
   
-  // function updateQuantity(currentState, action, type) {
-  //   if(type == 'new') {
-  //     let itemList = itemAdded.cartList;
-  //     let addedObj = itemList.find(obj.id);
-  //     let cartObj = {};
-  //     let totalCartObj = {};
-
-  //     if(addedObj) {
-  //       addedObj.quantity = addedObj.quantity < addedObj.stock ? addedObj.quantity + 1 : addedObj.quantity;
-  //       addedObj.totalPrice = addedObj.quantity < addedObj.stock ? addedObj.totalPrice + obj.price : addedObj.totalPrice;
-  //       itemList.forEach((item,i)=> {
-  //         if(item.id == obj.id) {
-  //           itemList[i] = addedObj
-  //         }
-  //       })
-  //     }else {
-  //       cartObj.id = obj.id;
-  //       cartObj.quantity = 1;
-  //       cartObj.stock = obj.stock;
-  //       cartObj.unitPrice = obj.price;
-  //       cartObj.totalItemPrice = obj.price;
-  //       itemList.push(cartObj)
-  //     }
-
-  //     totalCartObj.cartList = itemList;
-  //     totalCartObj.totalPrice = itemList.reduce((acc, curr) => acc + curr.totalPrice, 0);
-  //   }
-  // }
-  
   export default cartReducer;
   
