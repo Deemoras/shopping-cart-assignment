@@ -17,7 +17,7 @@
     background: black;
     color: white;
   }
-
+  
   .cart-content-style {
     .cart-content-container {
       .cart-item-content {
@@ -124,4 +124,6 @@
     justify-content: space-between;
     align-items: center;
   }
+  
+  button:hover {background-color: mediumvioletred}
 }
