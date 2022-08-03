@@ -72,17 +72,16 @@ export default function Navbar() {
   };
 
   const handleCheckout = () => {
-    if (itemAdded.length > 0) {
-      userAuthentication === "logged-in"
-        ? navigate("/")
-        : navigate("/login");
-    } else {
-      let totalCartObj = {};
+    let totalCartObj = {};
       totalCartObj.cartList = [];
       totalCartObj.totalPrice = 0;
       dispatch(deleteQuantity(totalCartObj));
-      navigate("/products");
-    }
+      if(userAuthentication === "logged-in"){
+        navigate("/products") 
+      }else {
+        setOpen(false)  
+        navigate("/login")
+      }
     
   };
 

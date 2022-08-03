@@ -12,6 +12,7 @@ import "./ProductListStyle.scss";
 export default function ProductListPage() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const userAuthentication = sessionStorage.getItem("status");
   const itemAdded = useSelector((state) => state.cart.data);
   const productsItem = useSelector((state) => state.products.data);
   const loading = useSelector((state) => state.products.loading);
@@ -71,8 +72,10 @@ export default function ProductListPage() {
       itemList.length == 1 && addedObj
         ? addedObj.totalItemPrice
         : itemList.reduce((acc, curr) => acc + curr.totalItemPrice, 0);
+        if(userAuthentication === "logged-in") {
+          dispatch(addItemToCart(obj.id));
+        }
     dispatch(addNewQuantity(totalCartObj));
-    dispatch(addItemToCart(obj.id));
   };
 
   return (
