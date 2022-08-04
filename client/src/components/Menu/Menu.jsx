@@ -8,8 +8,12 @@ export default function Menu(props) {
 
   const menuList = props.categoryList.filter((item) => item.enabled == true);
 
-  const handleOnClick = (id) => {
-    navigate("/products", { state: { id: id, page: "products" } });
+  const handleOnClick = (id, classStyle) => {
+    if (classStyle.includes('active')) {
+      navigate("/products", { state: { id: "", page: "products" } });
+    }else {
+      navigate("/products", { state: { id: id, page: "products" } });
+    }
   };
 
   return (
@@ -45,7 +49,9 @@ export default function Menu(props) {
                     ? "menu-items-style menu-items-style-active "
                     : "menu-items-style"
                 }
-                onClick={() => handleOnClick(item.id)}
+                onClick={() => handleOnClick(item.id, item.id === props.productId
+                  ? "menu-items-style menu-items-style-active "
+                  : "menu-items-style")}
               >
                 {item.name}
               </div>
