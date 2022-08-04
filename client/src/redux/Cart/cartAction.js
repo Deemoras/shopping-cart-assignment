@@ -60,12 +60,13 @@ import {
     };
   };
 
-  export const addItemToCart = (data, id) => {
+  export const addItemToCart = (id, data) => {
     return (dispatch) => {
       dispatch(addItemToCartRequest());
       axios.post(CART_URL, id, HEADER)
         .then((res) => {
           dispatch(addItemToCartSuccess(data));
+          dispatch(addNewQuantity(data))
         })
         .catch((err) => {
           dispatch(addItemToCartFailure(err));

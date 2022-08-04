@@ -72,10 +72,12 @@ export default function ProductListPage() {
       itemList.length == 1 && addedObj
         ? addedObj.totalItemPrice
         : itemList.reduce((acc, curr) => acc + curr.totalItemPrice, 0);
+        
         if(userAuthentication === "logged-in") {
-          dispatch(addItemToCart(obj.id));
+          dispatch(addItemToCart(obj.id, totalCartObj));
+        }else{
+          dispatch(addNewQuantity(totalCartObj));
         }
-    dispatch(addNewQuantity(totalCartObj));
   };
 
   return (
