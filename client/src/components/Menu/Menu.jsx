@@ -9,7 +9,7 @@ export default function Menu(props) {
   const menuList = props.categoryList.filter((item) => item.enabled == true);
 
   const handleOnClick = (id, classStyle) => {
-    if (classStyle.includes('active')) {
+    if (classStyle && classStyle.includes('active')) {
       navigate("/products", { state: { id: "", page: "products" } });
     }else {
       navigate("/products", { state: { id: id, page: "products" } });
